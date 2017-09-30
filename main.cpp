@@ -1,6 +1,12 @@
+// I/O
 #include <iostream>
-#include <vector>
+
+// data structures
+#include <queue>
 #include <set>
+#include <vector>
+
+// manipulations
 #include <algorithm>
 
 #define rep(i,n) for(int i=0;i< (n);++i)
