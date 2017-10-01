@@ -3,8 +3,8 @@
 #include <iomanip>
 
 // data structures
-#include <queue>
 #include <set>
+#include <queue>
 #include <vector>
 
 // manipulations
@@ -24,8 +24,21 @@ using VVI = std::vector<VI>;
 using VPI = std::vector<PI>;
 template<class T> bool is_odd (T x){ return   x%2 ; }
 template<class T> bool is_even(T x){ return !(x%2); }
+LLI combination(LLI n,LLI k,bool reset=false){
+    static VVI C; static LLI n_hashed = -1;
+    if(n<0){ std::cerr << "[ERROR] n must be non-negative in combination()" << std::endl; exit(1); }
+    if(!(0<=k&&k<=n)){ std::cerr << "[WARNING] k should be in range [0,n] in combination()" << std::endl; return 0; }
+    if(n_hashed<n || reset){
+        C.resize(n+1);
+        for(int i=0;i<=n;++i) C[i].resize(i+1,1); // filled with 1
+        for(int i=1;i<=n;++i)for(int j=1;j<i;++j) C[i][j] = C[i-1][j-1] + C[i-1][j];
+        n_hashed = n;
+    }
+    return C[n][k];
+}
 
 int main() {
     std::ios::sync_with_stdio(false);
+
     return 0;
 }
