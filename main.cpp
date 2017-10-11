@@ -5,7 +5,6 @@
 // data structures
 #include <set>
 #include <queue>
-#include <vector>
 
 // manipulations
 #include <algorithm>
