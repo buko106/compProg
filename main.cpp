@@ -21,6 +21,31 @@ using VI  = std::vector<LLI>;
 using PI  = std::pair<LLI,LLI>;
 using VVI = std::vector<VI>;
 using VPI = std::vector<PI>;
+namespace compProg{
+    template<class T> std::ostream& ostream_iterable_impl(std::ostream &os,
+                                                          const T &t,
+                                                          const std::string &LEFT,
+                                                          const std::string &RIGHT,
+                                                          const std::string &DELIMITER){
+        bool first = true;
+        os << LEFT;
+        for(const auto &x:t){
+            if(first) first = false;
+            else os << DELIMITER;
+            os << x;
+        }
+        os << RIGHT;
+    }
+}
+template<class T> std::ostream& operator<<(std::ostream &os,const std::vector<T> &t){
+    return compProg::ostream_iterable_impl(os,t,"[","]",", ");
+}
+template<class T> std::ostream& operator<<(std::ostream &os,const std::set<T> &t){
+    return compProg::ostream_iterable_impl(os,t,"{","}",", ");
+}
+template<class T> std::ostream& operator<<(std::ostream &os,const std::multiset<T> &t){
+    return compProg::ostream_iterable_impl(os,t,"{","}",", ");
+}
 template<class T> bool is_odd (T x){ return   x%2 ; }
 template<class T> bool is_even(T x){ return !(x%2); }
 LLI combination(LLI n,LLI k,bool reset=false){
