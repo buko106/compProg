@@ -18,9 +18,9 @@ using LLI = long long int;
 LLI GCD(LLI a,LLI b){ if(a<b) return GCD(b,a); else if(a%b==0) return b; else return GCD(b,a%b); }
 LLI LCM(LLI a,LLI b){ return (a/GCD(a,b))*b; }
 using VI  = std::vector<LLI>;
-using PI  = std::pair<LLI,LLI>;
+using PII  = std::pair<LLI,LLI>;
 using VVI = std::vector<VI>;
-using VPI = std::vector<PI>;
+using VPII = std::vector<PII>;
 template<class T> bool is_odd (T x){ return   x%2 ; }
 template<class T> bool is_even(T x){ return !(x%2); }
 LLI combination(LLI n,LLI k,bool reset=false){
