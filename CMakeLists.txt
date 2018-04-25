@@ -3,5 +3,6 @@ project(compProg)
 
 set(CMAKE_CXX_STANDARD 14)
 
-set(SOURCE_FILES main.cpp)
+AUX_SOURCE_DIRECTORY(mylib MYLIB)
+set(SOURCE_FILES main.cpp ${MYLIB})
 add_executable(compProg ${SOURCE_FILES})

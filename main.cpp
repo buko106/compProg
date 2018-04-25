@@ -12,6 +12,9 @@
 // manipulations
 #include <algorithm>
 
+// others
+#include <cassert>
+
 #define rep(i,n) for(int (i)=0;(i)< (n);++(i))
 #define REP(i,n) for(int (i)=1;(i)<=(n);++(i))
 #define for_lowercase(c) for(char (c)='a';(c)<='z';++(c))
@@ -68,6 +71,9 @@ template<class T> std::ostream& operator<<(std::ostream &os,const std::set<T> &t
 template<class T> std::ostream& operator<<(std::ostream &os,const std::multiset<T> &t){
     return compProg::ostream_iterable_impl(os,t,"{","}",", ");
 }
+
+// begin library
+// end library
 
 int main() {
     std::ios::sync_with_stdio(false);
